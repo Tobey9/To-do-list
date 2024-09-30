@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.container {
+  margin: 0 390px;
+}
+
+.grid-to-do {
+  margin-bottom: 10px;
+}
+
+.grid,
+.grid-to-do {
+  display: grid;
+  grid-template-columns: 250px 150px 100px;
+  gap: 15px;
+}
+
+.to-do-list,
+.date {
+  padding: 10px 15px;
+  font-family: inherit;
+}
+
+.add-btn {
+  padding: 10px 15px;
+  background-color: #9adbec;
+  color: #155e75;
+  border: none;
+}
+.delete-btn {
+  padding: 10px 15px;
+  background-color: #d46d4e;
+  border: none;
+}
