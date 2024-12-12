@@ -1,47 +1,42 @@
-const listsObject = [{ name: "eat breakfast", date: "2024 - 11 - 22" }];
+const nameInputEl = document.getElementById("inputName");
+const dateInputEl = document.getElementById("inputDate");
+const submitBtn = document.getElementById("submitBtn");
+const resultContainerEl = document.querySelector(".result-container");
 
-const addBtn = document.querySelector(".js-add-btn");
+const listsObject = [];
 
-renderTodolist();
+const minDate = new Date().toISOString().split("T")[0];
+dateInputEl.setAttribute("min", minDate);
 
-function renderTodolist() {
+function displayValue() {
   let todolist = "";
 
-  listsObject.forEach((todoObject, index) => {
-    const { name, date } = todoObject;
-    const html = `<div>${name}</div>
-    <div>${date}</div>
-    <button class="js-delete-btn delete-btn">Delete</button>`;
-
+  listsObject.forEach((object) => {
+    const { name, date } = object;
+    const html = `<div class='text-result'>
+              <div class='name-result'>${name}</div>
+              <div class='date-result'>${date}</div>
+              <i class='fa-solid fa-x delete'></i>
+            </div>`;
     todolist += html;
   });
+  resultContainerEl.innerHTML = todolist;
 
-  document.querySelector(".js-list").innerHTML = todolist;
-
-  document.querySelectorAll(".js-delete-btn").forEach((deleteButton, index) => {
-    deleteButton.addEventListener("click", () => {
-      listsObject.splice(index, 1);
-      renderTodolist();
+  document.querySelectorAll(".delete").forEach((delBtn, i) => {
+    delBtn.addEventListener("click", (wow) => {
+      listsObject.splice(i, 1);
+      displayValue();
     });
   });
 }
 
-addBtn.addEventListener("click", () => {
-  addTodo();
-});
+function inputValue(e) {
+  e.preventDefault();
+  const name = nameInputEl.value;
+  const date = dateInputEl.value;
+  listsObject.push({ name: name, date: date });
 
-function addTodo() {
-  const list = document.querySelector(".js-to-do-list");
-  const dueDate = document.querySelector(".js-date");
-  const name = list.value;
-  const date = dueDate.value;
-
-  listsObject.push({
-    name,
-    date,
-  });
-
-  list.value = "";
-
-  renderTodolist();
+  displayValue();
 }
+
+submitBtn.addEventListener("click", inputValue);

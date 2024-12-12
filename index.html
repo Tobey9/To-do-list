@@ -3,19 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css" />
     <title>To do lists</title>
   </head>
   <body>
     <div class="container">
-      <h2>To Do Lists</h2>
-      <div class="grid-to-do">
+      <div class="header"><h2>To Do Lists</h2></div>
+
+      <!-- <div class="grid-to-do">
         <input class="js-to-do-list to-do-list" placeholder="Name" />
         <input class="js-date date" type="date" />
         <button class="js-add-btn add-btn">Add</button>
       </div>
       <div class="grid js-list"></div>
+    </div> -->
+
+    <div class="form-container">
+      <form id="form">
+        <label for="inputName">Name</label>
+        <input type="text" id="inputName" placeholder="Things to do" required>
+        <label for="inputDate">Date</label>
+        <input type="date" id="inputDate" required>
+        <button type="submit" id="submitBtn">Add</button>
+      </form>
     </div>
+    <div class="result-container">
+      <!-- <div class="text-result ">
+        <div class="name-result">Sleep</div>
+        <div class="date-result">05 Jan</div>
+        <i class="fa-solid fa-x"></i>
+    </div> -->
+  </div>
+    
     <script src="script.js"></script>
   </body>
 </html>
